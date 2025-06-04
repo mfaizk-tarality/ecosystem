@@ -176,7 +176,7 @@ const DeveloperRewards = () => {
           <PageTitle
             title={"Build & Earn Rewards!"}
             subtitle={
-              "Innovate, create, and contribute to TAN’s ecosystem. Get rewarded for building the future of blockchain!"
+              "Innovate, create, and contribute to TAN's ecosystem. Get rewarded for building the future of blockchain!"
             }
           />
           <div className="w-full grid grid-cols-12 mt-4 rounded-2xl relative gap-4 ">
