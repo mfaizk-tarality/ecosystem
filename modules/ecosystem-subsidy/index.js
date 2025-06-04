@@ -154,3 +154,27 @@ export const getDeveloperTaskList = () => {
     },
   });
 };
+
+export const becomeDeveloper = async (
+  taskId,
+  walletAddress,
+  githubRepoLink,
+  contractAddress
+) => {
+  try {
+    const response = await api({
+      url: `${ecoSystem}/developer/becomeDeveloper`,
+      method: "POST",
+      data: {
+        taskId,
+        walletAddress,
+        githubRepoLink,
+        contractAddress: contractAddress,
+      },
+    });
+    return response;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+};

@@ -112,7 +112,7 @@ const DeveloperRewards = () => {
 
     if (!item?.userData?.status) {
       return (
-        <Link href={"#"}>
+        <Link href={`/ecosystem-subsidy/developer-reward/${item?.id}`}>
           <CustomButton isConnected={isConnected} className={"rounded-lg"}>
             Submit & Earn
           </CustomButton>
@@ -127,9 +127,36 @@ const DeveloperRewards = () => {
           isLoading={isLoading}
           className={"rounded-lg"}
           clickHandler={() => {
-            // setCurrentSelectedData(item);
-            // setConfirmModal(true);
+            setCurrentSelectedData(item);
+            claimHandler();
           }}
+        >
+          Claim
+        </CustomButton>
+      );
+    }
+    if (item?.userData?.status != "approved" && !item?.userData?.isClaimed) {
+      return (
+        <CustomButton
+          isConnected={isConnected}
+          isLoading={isLoading}
+          className={"rounded-lg capitalize"}
+          outlined
+        >
+          {item?.userData?.status == "downloading"
+            ? "Github Download"
+            : item?.userData?.status
+            ? item?.userData?.status
+            : "--"}
+        </CustomButton>
+      );
+    }
+    if (item?.userData?.isClaimed) {
+      return (
+        <CustomButton
+          isConnected={isConnected}
+          isLoading={isLoading}
+          className={"rounded-lg"}
         >
           Claim
         </CustomButton>
@@ -166,7 +193,7 @@ const DeveloperRewards = () => {
                         {item?.amount ? formatNice(item?.amount) : "--"} TAN
                       </span>
                     </p>
-                    <div className="text-center border border-stroke">
+                    <div className="text-center border border-stroke p-1">
                       <p className="text-xs ">
                         {moment(item?.deadLine)?.format("ll")}
                       </p>
