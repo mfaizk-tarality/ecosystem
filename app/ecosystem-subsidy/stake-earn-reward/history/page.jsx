@@ -110,7 +110,7 @@ const StakeEarnitemHistory = () => {
               {((!participationListPending && participationList?.length == 0) ||
                 !isConnected) && (
                 <div className="min-h-56">
-                  <NoDataFound text={"No Token Found."} />
+                  <NoDataFound text={"No Data Found."} />
                 </div>
               )}
 

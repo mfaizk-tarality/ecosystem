@@ -37,7 +37,7 @@ const EcoSystemSubsidy = () => {
                   key={idx}
                   className="min-h-96 col-span-12 md:col-span-4 flex items-center justify-evenly flex-col p-4 border-2 border-stroke text-center rounded-xl"
                 >
-                  <item.icon className="text-white" />
+                  <item.icon className="text-white text-xl" />
                   <p>{item.label}</p>
                   <p className="text-description">{item.desc}</p>
                   <Link href={item.href}>
